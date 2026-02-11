@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Princess ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg1:#ffb6d9;
+  --bg2:#ff4fa3;
+  --accent:#ff2e88;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  font-family:'Poppins',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* Floating hearts */
+.heart,.sparkle{
+  position:fixed;
+  bottom:-20px;
+  pointer-events:none;
+}
+.heart{
+  animation:floatUp linear infinite;
+  opacity:.4;
+}
+.sparkle{
+  font-size:12px;
+  opacity:.35;
+  animation:sparkleUp linear infinite;
+}
+@keyframes floatUp{to{transform:translateY(-120vh)}}
+@keyframes sparkleUp{to{transform:translateY(-110vh) rotate(360deg)}}
+
+/* Card */
+.card{
+  width:100%;
+  max-width:420px;
+  background:linear-gradient(135deg,#ff4d6d,#ff006e);
+  border-radius:40px;
+  padding:40px 25px;
+  text-align:center;
+  box-shadow:
+    0 40px 100px rgba(255,0,110,.6),
+    inset 0 0 25px rgba(255,255,255,.3);
+}
+
+/* Title */
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:2.8rem;
+  color:#fff;
+  margin-bottom:6px;
+  animation:heartbeat 1.6s infinite;
+}
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+
+.subtitle{color:#fff;margin-bottom:20px;}
+.quote{font-size:.95rem;color:white;margin:10px 0;opacity:.9;}
+
+.surprises{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin:25px 0;
+}
+
+.box{
+  font-size:40px;
+  cursor:pointer;
+  transition:.3s;
+  animation:bounce 2s infinite;
+  filter:drop-shadow(0 0 8px #ff2e88);
+}
+.box:hover{transform:scale(1.3) rotate(10deg);}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+.cracker{
+  position:fixed;
+  font-size:18px;
+  animation:burst 1s ease forwards;
+  pointer-events:none;
+}
+@keyframes burst{
+  to{transform:translateY(-80px) scale(1.8);opacity:0;}
+}
+
+/* Envelope */
+.envelope{
+  width:220px;
+  height:140px;
+  margin:30px auto;
+  background:linear-gradient(145deg,#a855f7,#ec4899);
+  border-radius:0 0 16px 16px;
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+}
+.envelope::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:0;height:0;
+  border-left:110px solid transparent;
+  border-right:110px solid transparent;
+  border-top:80px solid #ff4fa3;
+  transform-origin:top;
+  transition:.6s ease;
+}
+.envelope.open::before{transform:rotateX(180deg);}
+
+.letter{
+  position:absolute;
+  bottom:-120px;
+  left:10px;
+  width:200px;
+  height:120px;
+  background:white;
+  border-radius:12px;
+  padding:16px;
+  font-size:14px;
+  font-weight:700;
+  color:#ff2e88;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:.6s ease;
+}
+.envelope.open .letter{bottom:10px;}
+
+.btn{
+  width:85%;
+  max-width:260px;
+  padding:15px;
+  border:none;
+  border-radius:50px;
+  font-size:1.1rem;
+  font-weight:700;
+  cursor:pointer;
+  margin:8px auto;
+}
+.btn-yes{
+  background:linear-gradient(45deg,#ff2e88,#ff77b7);
+  color:white;
+}
+.btn-no{
+  background:#660033;
+  color:white;
+}
+
+/* Popup */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:100;
+}
+.modal{
+  background:linear-gradient(135deg,#ff9acb,#ff2e88);
+  padding:28px;
+  border-radius:30px;
+  width:90%;
+  max-width:360px;
+  text-align:center;
+  color:white;
+}
+.modal img{
+  width:100%;
+  border-radius:20px;
+  margin-bottom:15px;
+}
+.close{
+  margin-top:10px;
+  padding:10px 25px;
+  border:none;
+  border-radius:25px;
+  background:white;
+  color:#ff2e88;
+  font-weight:700;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>For My Papaaa.. 👑</h1>
+  <div class="subtitle">Surprise, just for you ✨</div>
+
+  <div class="quote">💙 “evlo days ah surprise... surprise nu ketrukaaaaaa..”</div>
+  <div class="quote">🌸 “ Indhaa Vachukooo papzzzz elame unakagaaaa dhannnn....” 😘</div>
+  <div class="quote">✨ “oru..oru.. Surprise box ah open pani parungaaa jelloooo😘” 💍</div>
+
+  <div class="surprises">
+  
+    <div class="box" onclick="surprise(this,'Un peru ketta udane heart beat fast uh.....Un kooda dhaan en future first & last ❤️😘')">🎁</div>
+    <div class="box" onclick="surprise(this,'Unakku India va illa Dubai residence ah theriyala…Aana en heart la permanent residence already approved d.. ❤️🏠')">🎁</div>
+    <div class="box" onclick="surprise(this,'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjNnMnF2Nnk4d25rcDhrb3R4OTJ3aGdibGR6ZGJjNGZ2MjRyMjJrNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ROp9DLlKBVmlet2ocr/giphy.gif')">🎁</div>
+  </div>
+
+  <div class="envelope" id="env">
+    <div class="letter">
+      💌 𝓦𝓲𝓵𝓵 𝔂𝓸𝓾 𝓫𝓮 𝓜𝔂 𝓿𝓪𝓵𝓮𝓷𝓽𝓲𝓷𝓮... 𝓟𝓪𝓹𝓩𝓩...[𝓨𝓔𝓢 𝓞𝓡 𝓝𝓞] ⬇️ 
+    </div>
+  </div>
+
+  <button class="btn btn-yes" onclick="showYes()">YES 😍</button>
+  <button class="btn btn-no" onclick="showNo()">NO 😡</button>
+</div>
+
+<!-- YES -->
+<div class="overlay" id="yes">
+  <div class="modal">
+    <img src="https://media.giphy.com/media/fvN5KrNcKKUyX7hNIA/giphy.gif">
+    <p>You are my forever ❤️</p>
+    <button class="close" onclick="closeAll()">💍 Always</button>
+  </div>
+</div>
+
+<!-- NO -->
+<div class="overlay" id="no">
+  <div class="modal">
+    <img src="https://media1.giphy.com/media/bcqAMUTUHoLDy/giphy.gif">
+    <p>No is not an option 😤❤️</p>
+    <button class="close" onclick="closeAll()">Try Again</button>
+  </div>
+</div>
+
+<!-- MESSAGE -->
+<div class="overlay" id="msg">
+  <div class="modal">
+    <div id="msgText"></div>
+    <button class="close" onclick="closeAll()">Aww 💕</button>
+  </div>
+</div>
+
+<script>
+const env = document.getElementById("env");
+const yesOverlay = document.getElementById("yes");
+const noOverlay = document.getElementById("no");
+const msgOverlay = document.getElementById("msg");
+const msgText = document.getElementById("msgText");
+
+env.onclick = () => env.classList.toggle("open");
+
+function surprise(el, content){
+  const rect = el.getBoundingClientRect();
+
+  if(content.endsWith(".gif")){
+    msgText.innerHTML = "<img src='"+content+"' style='width:100%;border-radius:15px;'>";
+  } else {
+    msgText.innerText = content;
+  }
+
+  msgOverlay.style.display="flex";
+
+  for(let i=0;i<20;i++){
+    const c=document.createElement("div");
+    c.className="cracker";
+    c.innerHTML="✨";
+    c.style.left=(rect.left+Math.random()*50)+"px";
+    c.style.top=(rect.top)+"px";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),1000);
+  }
+}
+
+function showYes(){ yesOverlay.style.display="flex"; }
+function showNo(){ noOverlay.style.display="flex"; }
+function closeAll(){
+  yesOverlay.style.display="none";
+  noOverlay.style.display="none";
+  msgOverlay.style.display="none";
+}
+
+/* Hearts */
+for(let i=0;i<60;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(10+Math.random()*22)+"px";
+  h.style.animationDuration=(6+Math.random()*8)+"s";
+  document.body.appendChild(h);
+}
+
+/* Sparkles */
+for(let i=0;i<30;i++){
+  const s=document.createElement("div");
+  s.className="sparkle";
+  s.innerHTML="✨";
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=(8+Math.random()*8)+"s";
+  document.body.appendChild(s);
+}
+</script>
+
+</body>
+</html>
